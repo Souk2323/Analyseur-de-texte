@@ -2,43 +2,56 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Projet L2 - Soukaina Elkasmi</title>
+    <title>CV et Projet TAL - Soukaina El Kasmi</title>
     <style>
-        body { background-color: #CCCC00; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        #interface { background-color: #D3A4B0; border: 2px solid #666; padding: 20px; width: 90%; margin: auto; box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
-        h1 { color: white; text-shadow: 2px 2px #666; }
-        .zones { display: flex; flex-direction: column; align-items: center; margin-top: 20px; gap: 10px; }
-        textarea { width: 95%; height: 200px; background-color: white; border: 1px solid #666; }
+        /* --- STYLE DU CV (Gris clair) --- */
+        body { background-color: #d8e0d8; font-family: sans-serif; margin: 0; padding: 20px; color: #000; }
+        .cv-container { background-color: white; max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border: 1px solid #000; text-align: center; }
+        .cv-table { border-collapse: collapse; margin: 10px auto; }
+        .cv-table td { border: 1px solid #000; padding: 5px; font-size: 0.9em; }
+        
+        /* --- STYLE DU PROJET (Jaune et Rose du prof) --- */
+        #projet-section { background-color: #CCCC00; padding: 30px 10px; border: 2px solid #000; text-align: center; }
+        #interface { background-color: #D3A4B0; border: 1px solid #333; padding: 20px; width: 90%; margin: auto; }
         .boutons { margin: 15px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
-        button { background-color: #A3C691; border: 1px solid #666; cursor: pointer; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
-        input[type="text"] { width: 150px; }
+        button { background-color: #A3C691; border: 1px solid #333; cursor: pointer; padding: 5px 10px; font-weight: bold; }
+        textarea { width: 95%; height: 150px; margin-top: 10px; border: 1px solid #333; }
     </style>
 </head>
 <body>
-    <h1>Analyse des données dans un fichier</h1>
-    <div id="interface">
-        <p>Sélectionner un fichier .txt : <input type="file" id="monFichier"></p>
-        
-        <div style="font-size: 0.8em; margin-bottom: 10px;">
-            DÉLIMITEURS: <input type="text" id="delim" value='[ ,\.?!\n\r\t\(\)\[\]"&;:]+'> 
-            PÔLE: <input type="text" id="pole" placeholder="mot à chercher..."> 
-        </div>
 
-        <button id="btn_bonjour">Bonjour</button>
+    <div class="cv-container">
+        <h1>Soukaina El Kasmi</h1>
+        <p><strong>Licence 2 des Sciences du Langage</strong></p>
+        <p>Mon parcours :</p>
+        <table class="cv-table">
+            <tr><td>2024-2025</td><td>L1 Sciences du langage</td></tr>
+            <tr><td>2025-2026</td><td>L2 Sciences du langage</td></tr>
+        </table>
+        <p>Dernières lectures : Le Secret de la Mer, La dame de ménage, Incendie...</p>
+    </div>
 
-        <div class="boutons">
-            <button id="btn_segmenter">Segmentation</button>
-            <button id="btn_dict">Dictionnaire</button>
-            <button id="btn_grep">GREP</button>
-            <button id="btn_phrases">Nombre de phrases</button>
-            <button id="btn_longs">Mots les plus longs</button>
-        </div>
+    <div id="projet-section">
+        <h2 style="font-style: italic;">Analyse des données dans un fichier</h2>
+        <div id="interface">
+            <p>Fichier .txt : <input type="file" id="monFichier"></p>
+            <p>DÉLIMITEURS : <input type="text" id="delim" value='[ ,\.?!\n\r\t\(\)\[\]"&;:]+'></p>
+            <p>PÔLE : <input type="text" id="pole" placeholder="mot à chercher..."></p>
+            
+            <button id="btn_bonjour">Bonjour</button>
+            <div class="boutons">
+                <button id="btn_segmenter">Segmentation</button>
+                <button id="btn_dict">Dictionnaire</button>
+                <button id="btn_grep">GREP</button>
+                <button id="btn_phrases">Nombre de phrases</button>
+                <button id="btn_longs">Mots les plus longs</button>
+            </div>
 
-        <div class="zones">
             <textarea id="entree" placeholder="Texte source..."></textarea>
-            <textarea id="sortie" placeholder="Résultat..." readonly></textarea>
+            <textarea id="sortie" placeholder="Résultats..." readonly></textarea>
         </div>
     </div>
+
     <script src="assets/JS/main.js"></script>
 </body>
 </html>
