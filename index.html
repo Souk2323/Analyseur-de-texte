@@ -2,77 +2,99 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Projet Final - Soukaina El Kasmi</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet L4INA01 - Soukaina El Kasmi</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body style="background-color: #CCCC00; font-family: Arial, sans-serif; text-align: center;">
+<body>
 
-    <div style="background-color: white; border: 1px solid black; margin: 20px auto; width: 80%; padding: 20px; text-align: left;">
-        <h1 style="text-align: center;">Soukaina El Kasmi</h1>
-        <p style="text-align: center; font-weight: bold;">Licence 2 des Sciences du Langage</p>
+    <header id="cv-header">
+        <h1>Soukaina El Kasmi</h1>
+        <p><em>Licence 2 des Sciences du Langage - Université Sorbonne Nouvelle</em></p>
         
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <div>
-                <h3>Mon parcours :</h3>
-                <table border="1" style="border-collapse: collapse;">
+        <div class="cv-section">
+            <h3>Mon Parcours</h3>
+            <table border="1">
+                <thead>
                     <tr>
-                        <td><strong>2024-2025</strong></td>
-                        <td>L1 Sciences du langage</td>
+                        <th>Années</th>
+                        <th>Parcours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024-2025</td>
+                        <td>L1 Sciences du Langage</td>
                     </tr>
                     <tr>
-                        <td><strong>2025-2026</strong></td>
-                        <td>L2 Sciences du langage</td>
+                        <td>2025-2026</td>
+                        <td>L2 Sciences du Langage</td>
                     </tr>
-                </table>
-
-                <p>Voici les cinq derniers livres que j'ai lus :</p>
-                <ul>
-                    <li>Le Secret de la Mer</li>
-                    <li>La dame de ménage</li>
-                    <li>Voyage Imaginaire</li>
-                    <li>Incendie</li>
-                    <li>Le Silence des Langues</li>
-                </ul>
-            </div>
-            
-            <img src="images/photo.png" alt="Photo" style="width: 150px; border: 1px solid #ccc;">
+                </tbody>
+            </table>
         </div>
 
-        <div style="text-align: center; margin-top: 10px;">
-            <a href="#">Lien vers l'université</a><br>
-            <a href="#">Consulter le syllabus</a>
+        <div class="cv-section">
+            <h3>Mes dernières lectures</h3>
+            <ul>
+                <li>Le Secret de la Mer</li>
+                <li>La dame de ménage</li>
+                <li>Voyage Imaginaire</li>
+                <li>Incendie</li>
+                <li>Le Silence des Langues</li>
+            </ul>
         </div>
-    </div>
+        <hr>
+    </header>
 
-    <hr style="border: 2px solid #551A8B; width: 90%;">
+    <main id="container">
+        <h2>Analyse des données dans un fichier</h2>
 
-    <div style="background-color: #DDAAAA; border: 2px solid #555; margin: 20px auto; width: 70%; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
-        <h2 style="color: #663399; text-shadow: 1px 1px white;">Analyse des données dans un fichier</h2>
-        
-        <p>Sélectionner un fichier au format .txt : <input type="file" id="upload"></p>
-
-        <div style="background-color: #C08080; padding: 10px; display: inline-block; border-radius: 5px;">
-            <label>DÉLIMITEURS :</label> <input type="text" value=" ,;.:!?&@=-_'%$*()[]{}|/><+=\#"><br>
-            <label>PÔLE :</label> <input type="text" id="pole" placeholder="entrez un pôle...">
-            <label>LONGUEUR :</label> <input type="number" value="10">
-        </div>
-
-        <p style="background-color: white; padding: 5px; border: 1px solid black; display: inline-block;">Bonjour</p>
-
-        <div style="margin-top: 15px;">
-            <button style="background-color: #BADA55;">Segmentation</button>
-            <button style="background-color: #BADA55;">Dictionnaire</button>
-            <button style="background-color: #BADA55;">GREP</button>
-            <button style="background-color: #BADA55;">Concordancier</button>
-            <button style="background-color: #BADA55;">Nombre de phrases</button>
-            <button style="background-color: #BADA55;">Mots les plus longs</button>
-            <button style="background-color: #BADA55;">grapheCamembert-Pie Chart</button>
-        </div>
-    </div>
-
-    <div id="affichage" style="margin-top: 20px;">
+        <button id="btnAide">afficher l'aide</button>
+        <div id="aide" style="display:none; border: 1px solid #000; padding: 10px; margin: 10px 0;">
+            <p>1. Sélectionnez un fichier .txt<br>
+               2. Modifiez les délimiteurs si besoin<br>
+               3. Cliquez sur un bouton pour analyser le texte.</p>
         </div>
 
-    <script src="javascript/script.js"></script>
+        <div class="control-group">
+            <label>Sélectionner un fichier au format .txt :</label>
+            <input type="file" id="fileInput" accept=".txt">
+        </div>
+
+        <div class="params">
+            <p>
+                <label>DELIMITEURS :</label>
+                <input type="text" id="delims" value="~&#@=-.?!%*$()[]{}_+«»§\/">
+            </p>
+            <p>
+                <label>PÔLE :</label>
+                <input type="text" id="pole" placeholder="entrez un pôle...">
+                <label>LONGUEUR :</label>
+                <input type="number" id="longueur" value="10">
+            </p>
+        </div>
+
+        <div class="buttons-bar">
+            <button id="btnBonjour">Bonjour</button>
+            <button id="btnSegmentation">Segmentation</button>
+            <button id="btnDictionnaire">Dictionnaire</button>
+            <button id="btnGrep">GREP</button>
+            <button id="btnConcordancier">Concordancier</button>
+            <button id="btnPhrases">Nombre de phrases</button>
+            <button id="btnMotsLongs">Mots les plus longs</button>
+        </div>
+
+        <div id="stats" style="font-weight: bold; margin: 15px 0; color: green;">
+            Aucun fichier chargé.
+        </div>
+
+        <div class="display-area">
+            <div id="affichageGauche" class="box">Texte d'origine...</div>
+            <div id="affichageDroit" class="box">Résultats de l'analyse...</div>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
