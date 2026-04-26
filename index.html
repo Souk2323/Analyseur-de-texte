@@ -2,56 +2,77 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>CV et Projet TAL - Soukaina El Kasmi</title>
-    <style>
-        /* --- STYLE DU CV (Gris clair) --- */
-        body { background-color: #d8e0d8; font-family: sans-serif; margin: 0; padding: 20px; color: #000; }
-        .cv-container { background-color: white; max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border: 1px solid #000; text-align: center; }
-        .cv-table { border-collapse: collapse; margin: 10px auto; }
-        .cv-table td { border: 1px solid #000; padding: 5px; font-size: 0.9em; }
-        
-        /* --- STYLE DU PROJET (Jaune et Rose du prof) --- */
-        #projet-section { background-color: #CCCC00; padding: 30px 10px; border: 2px solid #000; text-align: center; }
-        #interface { background-color: #D3A4B0; border: 1px solid #333; padding: 20px; width: 90%; margin: auto; }
-        .boutons { margin: 15px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
-        button { background-color: #A3C691; border: 1px solid #333; cursor: pointer; padding: 5px 10px; font-weight: bold; }
-        textarea { width: 95%; height: 150px; margin-top: 10px; border: 1px solid #333; }
-    </style>
+    <title>Projet Final - Soukaina El Kasmi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="background-color: #CCCC00; font-family: Arial, sans-serif; text-align: center;">
 
-    <div class="cv-container">
-        <h1>Soukaina El Kasmi</h1>
-        <p><strong>Licence 2 des Sciences du Langage</strong></p>
-        <p>Mon parcours :</p>
-        <table class="cv-table">
-            <tr><td>2024-2025</td><td>L1 Sciences du langage</td></tr>
-            <tr><td>2025-2026</td><td>L2 Sciences du langage</td></tr>
-        </table>
-        <p>Dernières lectures : Le Secret de la Mer, La dame de ménage, Incendie...</p>
-    </div>
+    <div style="background-color: white; border: 1px solid black; margin: 20px auto; width: 80%; padding: 20px; text-align: left;">
+        <h1 style="text-align: center;">Soukaina El Kasmi</h1>
+        <p style="text-align: center; font-weight: bold;">Licence 2 des Sciences du Langage</p>
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <h3>Mon parcours :</h3>
+                <table border="1" style="border-collapse: collapse;">
+                    <tr>
+                        <td><strong>2024-2025</strong></td>
+                        <td>L1 Sciences du langage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2025-2026</strong></td>
+                        <td>L2 Sciences du langage</td>
+                    </tr>
+                </table>
 
-    <div id="projet-section">
-        <h2 style="font-style: italic;">Analyse des données dans un fichier</h2>
-        <div id="interface">
-            <p>Fichier .txt : <input type="file" id="monFichier"></p>
-            <p>DÉLIMITEURS : <input type="text" id="delim" value='[ ,\.?!\n\r\t\(\)\[\]"&;:]+'></p>
-            <p>PÔLE : <input type="text" id="pole" placeholder="mot à chercher..."></p>
-            
-            <button id="btn_bonjour">Bonjour</button>
-            <div class="boutons">
-                <button id="btn_segmenter">Segmentation</button>
-                <button id="btn_dict">Dictionnaire</button>
-                <button id="btn_grep">GREP</button>
-                <button id="btn_phrases">Nombre de phrases</button>
-                <button id="btn_longs">Mots les plus longs</button>
+                <p>Voici les cinq derniers livres que j'ai lus :</p>
+                <ul>
+                    <li>Le Secret de la Mer</li>
+                    <li>La dame de ménage</li>
+                    <li>Voyage Imaginaire</li>
+                    <li>Incendie</li>
+                    <li>Le Silence des Langues</li>
+                </ul>
             </div>
+            
+            <img src="images/photo.png" alt="Photo" style="width: 150px; border: 1px solid #ccc;">
+        </div>
 
-            <textarea id="entree" placeholder="Texte source..."></textarea>
-            <textarea id="sortie" placeholder="Résultats..." readonly></textarea>
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="#">Lien vers l'université</a><br>
+            <a href="#">Consulter le syllabus</a>
         </div>
     </div>
 
-    <script src="assets/JS/main.js"></script>
+    <hr style="border: 2px solid #551A8B; width: 90%;">
+
+    <div style="background-color: #DDAAAA; border: 2px solid #555; margin: 20px auto; width: 70%; padding: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.3);">
+        <h2 style="color: #663399; text-shadow: 1px 1px white;">Analyse des données dans un fichier</h2>
+        
+        <p>Sélectionner un fichier au format .txt : <input type="file" id="upload"></p>
+
+        <div style="background-color: #C08080; padding: 10px; display: inline-block; border-radius: 5px;">
+            <label>DÉLIMITEURS :</label> <input type="text" value=" ,;.:!?&@=-_'%$*()[]{}|/><+=\#"><br>
+            <label>PÔLE :</label> <input type="text" id="pole" placeholder="entrez un pôle...">
+            <label>LONGUEUR :</label> <input type="number" value="10">
+        </div>
+
+        <p style="background-color: white; padding: 5px; border: 1px solid black; display: inline-block;">Bonjour</p>
+
+        <div style="margin-top: 15px;">
+            <button style="background-color: #BADA55;">Segmentation</button>
+            <button style="background-color: #BADA55;">Dictionnaire</button>
+            <button style="background-color: #BADA55;">GREP</button>
+            <button style="background-color: #BADA55;">Concordancier</button>
+            <button style="background-color: #BADA55;">Nombre de phrases</button>
+            <button style="background-color: #BADA55;">Mots les plus longs</button>
+            <button style="background-color: #BADA55;">grapheCamembert-Pie Chart</button>
+        </div>
+    </div>
+
+    <div id="affichage" style="margin-top: 20px;">
+        </div>
+
+    <script src="javascript/script.js"></script>
 </body>
 </html>
