@@ -2,98 +2,37 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet L4INA01 - Soukaina El Kasmi</title>
+    <title>Analyseur de texte - Soukaina</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header id="cv-header">
-        <h1>Soukaina El Kasmi</h1>
-        <p><em>Licence 2 des Sciences du Langage - Université Sorbonne Nouvelle</em></p>
+    <div id="cv-header">
+        <h1>Mon CV & Analyseur de Texte</h1>
+        <p>Projet réalisé par Soukaina</p>
+    </div>
+
+    <div id="container">
+        <input type="file" id="fileInput">
+        <br><br>
+        <input type="text" id="delims" placeholder="Délimiteurs (ex: ,;.)" value=",;. ">
+        <br><br>
         
-        <div class="cv-section">
-            <h3>Mon Parcours</h3>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Années</th>
-                        <th>Parcours</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2024-2025</td>
-                        <td>L1 Sciences du Langage</td>
-                    </tr>
-                    <tr>
-                        <td>2025-2026</td>
-                        <td>L2 Sciences du Langage</td>
-                    </tr>
-                </tbody>
-            </table>
+        <button id="btnSegmentation">Segmentation</button>
+        <button id="btnBonjour">Dire Bonjour</button>
+        <button id="btnAide">Aide</button>
+
+        <div id="aide" style="display:none; background:white; padding:10px; margin-top:10px; border:1px solid black;">
+            <p>Chargez un fichier .txt, entrez les délimiteurs, et cliquez sur Segmentation.</p>
         </div>
 
-        <div class="cv-section">
-            <h3>Mes dernières lectures</h3>
-            <ul>
-                <li>Le Secret de la Mer</li>
-                <li>La dame de ménage</li>
-                <li>Voyage Imaginaire</li>
-                <li>Incendie</li>
-                <li>Le Silence des Langues</li>
-            </ul>
+        <div class="affichage-flex">
+            <div class="box" id="affichageGauche">Texte brut ici...</div>
+            <div class="box" id="affichageDroit">Résultat ici...</div>
         </div>
-        <hr>
-    </header>
-
-    <main id="container">
-        <h2>Analyse des données dans un fichier</h2>
-
-        <button id="btnAide">afficher l'aide</button>
-        <div id="aide" style="display:none; border: 1px solid #000; padding: 10px; margin: 10px 0;">
-            <p>1. Sélectionnez un fichier .txt<br>
-               2. Modifiez les délimiteurs si besoin<br>
-               3. Cliquez sur un bouton pour analyser le texte.</p>
-        </div>
-
-        <div class="control-group">
-            <label>Sélectionner un fichier au format .txt :</label>
-            <input type="file" id="fileInput" accept=".txt">
-        </div>
-
-        <div class="params">
-            <p>
-                <label>DELIMITEURS :</label>
-                <input type="text" id="delims" value="~&#@=-.?!%*$()[]{}_+«»§\/">
-            </p>
-            <p>
-                <label>PÔLE :</label>
-                <input type="text" id="pole" placeholder="entrez un pôle...">
-                <label>LONGUEUR :</label>
-                <input type="number" id="longueur" value="10">
-            </p>
-        </div>
-
-        <div class="buttons-bar">
-            <button id="btnBonjour">Bonjour</button>
-            <button id="btnSegmentation">Segmentation</button>
-            <button id="btnDictionnaire">Dictionnaire</button>
-            <button id="btnGrep">GREP</button>
-            <button id="btnConcordancier">Concordancier</button>
-            <button id="btnPhrases">Nombre de phrases</button>
-            <button id="btnMotsLongs">Mots les plus longs</button>
-        </div>
-
-        <div id="stats" style="font-weight: bold; margin: 15px 0; color: green;">
-            Aucun fichier chargé.
-        </div>
-
-        <div class="display-area">
-            <div id="affichageGauche" class="box">Texte d'origine...</div>
-            <div id="affichageDroit" class="box">Résultats de l'analyse...</div>
-        </div>
-    </main>
+        
+        <p id="stats">Nombre de formes : 0</p>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
