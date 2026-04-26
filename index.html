@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Projet L2 - Soukaina Elkasmi</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #interface { max-width: 800px; margin: auto; }
+        .zones { display: flex; gap: 10px; margin-top: 20px; }
+        textarea { width: 50%; height: 200px; }
+        .boutons { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div id="interface">
+        <h1>Analyseur de Texte</h1>
+        <p>Réalisé par : <strong>Soukaina Elkasmi</strong></p>
+
+        <input type="file" id="monFichier">
+        
+        <div class="boutons">
+            <button id="btn_bonjour">Bonjour</button>
+            <button id="btn_segmenter">Segmentation</button>
+        </div>
+
+        <div class="zones">
+            <textarea id="entree" placeholder="Texte source..."></textarea>
+            <textarea id="sortie" placeholder="Résultat de l'analyse..." readonly></textarea>
+        </div>
+    </div>
+
+    <script src="assets/JS/main.js"></script>
+</body>
+</html>
